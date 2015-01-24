@@ -1,0 +1,26 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #000000;
+}
+div#header{
+    height: 150px;
+    width: 100%;
+    background-color: #803a69;
+}
+iframe{
+    height: 600px;
+    width: 100%;
+    background-color: #78499A;
+
+}
+
+h1{
+    font-family: 'Open Sans', 'Calibri', sans-serif;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    font-size: 750%;
+    color: #80B621;
+}
