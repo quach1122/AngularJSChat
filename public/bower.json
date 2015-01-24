@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "authors": [
+    "quach1122 <quach1122@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "angular": "~1.3.10",
+    "angular-route": "~1.3.10"
+  }
+}
