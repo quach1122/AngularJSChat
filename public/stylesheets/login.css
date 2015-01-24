@@ -1,0 +1,133 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+
+}
+input {
+    margin-left: 25px;
+    margin-bottom: 1em;
+    border-radius: 5px;
+
+}
+#info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#chat{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#chat-window{
+    width: 80%;
+    height: 100%;
+    background: red;
+}
+#online-window{
+    height: 100%;
+    width: 20%;
+    background: blue;
+    margin: 0;
+    padding: 0;
+}
+#register{
+    height: 500px;
+    width: 475px;
+    background-color: #5a1cab;
+    border-radius: 10px;
+    margin-right: 75px;
+    margin-top: 50px;
+    letter-spacing: 2px;
+    -webkit-box-shadow: -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+    -moz-box-shadow:    -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+    box-shadow:         -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+
+}
+#register:hover > h1 {
+    color: #7e94ff;
+}
+#login{
+    height: 500px;
+    width: 450px;
+    background-color: #5a1cab;
+    border-radius: 10px;
+    margin-left: 75px;
+    margin-top: 50px;
+    letter-spacing: 2px;
+    -webkit-box-shadow: -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+    -moz-box-shadow:    -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+    box-shadow:         -4px 11px 18px 0px rgba(154, 198, 225, 0.68);
+}
+#login:hover > h1 {
+    color: #7e94ff;
+}
+h1{
+    padding-top: 20px;
+    padding-left: 120px;
+    color: white;
+    font-weight: bolder;
+    font-size: 250%;
+}
+#online-window > div{
+    width: 100%;
+    height: 25px;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+
+}
+#online-window > div:hover{
+    background-color: orange;
+}
+.chat-box{
+    float: right;
+    width: 300px;
+    height: 100%;
+    background-color: green;
+    display: none;
+}
+#current-user{
+    width: 100%;
+    background-color: pink;
+    height: 50px;
+}
+#messages{
+    width: 100%;
+    height: 70%;
+    background-color: gray;
+    overflow-y: auto;
+}
+#send{
+    display: block;
+}
+h3{
+    white-space: pre-line;
+}
+label{
+    padding-left: 25px;
+    display: inline-block;
+    width:20%;
+    text-align: right;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+input[type='submit']{
+    color: white;
+    background-color: #3a36ff;
+    font-size: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 5em;
+    height: 2em;
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+}

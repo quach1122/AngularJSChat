@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <h1>Hello!</h1>
-</body>
-</html>
+<div id="info">
+    <div id="register">
+        <h1>Register</h1>
+
+        <form>
+            <label>Username</label> <input type="text" value="username" id="username-reg"/><br/>
+            <label>Email</label> <input type="email" value="email" id="email-reg"/><br/>
+            <label>Password</label> <input type="password" value="password" id="password-reg"/><br/>
+            <label>Confirm Password</label> <input type="password" value="cpassword" id="cpassword-reg"/><br/>
+            <input type="submit" value="Register" id="submit-reg" ng-click="chatRoom()"/>
+        </form>
+    </div>
+    <div id="login">
+        <h1>Login</h1>
+
+        <form>
+            <label>Username</label> <input type="text" value="username" id="username-log"/><br/>
+            <label>Password</label> <input type="password" value="password" id="password-log"/><br/>
+            <input type="submit" value="Login" id="submit-log"/>
+        </form>
+    </div>
+</div>

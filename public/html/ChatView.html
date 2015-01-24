@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/stylesheets/login.css" rel="stylesheet" type="text/css"/>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script>
+                angular.module('chatApp',['ngRoute']).config(function($routeProvider){
+                   $routeProvider.when('/',{
+                       templateUrl: 'RegisterOrLogin.html',
+                       controller: 'loginController'
+                   }).when('/chat',{
+                       templateUrl: 'ChatRoom.html',
+                       controller: 'chatController'
+                   }).otherwise({
+                       redirectTo: '/'
+                   });
+                }).factory('ChatService',function($window){
+                    return{
+                        login: function(){
+                            $window.location.href = "#/chat";
+                        },
+                        register: function(){
+
+                        },
+                        validate: function(){
+
+                        },
+                        authenticate: function(){
+
+                        }
+
+                    }
+                }).controller('loginController',function($scope,ChatService){
+                    ChatService
+                    $scope.chatRoom = function(){
+                        ChatService.login();
+                    }
+                }).controller('chatController',function(){
+
+                });
+    </script>
+</head>
+<body>
+<div ng-view></div>
+</body>
+</html>
