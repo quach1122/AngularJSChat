@@ -8,4 +8,5 @@
  2. Used event listeners such as message,close,and open. 
  
 -NodeJS
- 1. Add user to their online users chat window and when signed on.
+ 1. Add user to online users chat window and when signed on.
+ 2. Sending message back and forth still in progress.
