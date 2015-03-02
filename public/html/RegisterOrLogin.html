@@ -3,20 +3,20 @@
         <h1>Register</h1>
 
         <form>
-            <label>Username</label> <input type="text" value="username" id="username-reg"/><br/>
-            <label>Email</label> <input type="email" value="email" id="email-reg"/><br/>
-            <label>Password</label> <input type="password" value="password" id="password-reg"/><br/>
-            <label>Confirm Password</label> <input type="password" value="cpassword" id="cpassword-reg"/><br/>
-            <input type="submit" value="Register" id="submit-reg" ng-click="chatRoom()"/>
+            <label>Username</label> <input type="text" value="username" id="username-reg" ng-model="user.username"/><br/>
+            <label>Email</label> <input type="email" value="email" id="email-reg" ng-model="user.email"/><br/>
+            <label>Password</label> <input type="password" value="password" id="password-reg" ng-model="user.password"/><br/>
+            <label>Confirm Password</label> <input type="password" value="cpassword" id="cpassword-reg" ng-model="user.cpassword"/><br/>
+            <input type="submit" value="Register" id="submit-reg" ng-click="register(user)"/>
         </form>
     </div>
     <div id="login">
         <h1>Login</h1>
 
         <form>
-            <label>Username</label> <input type="text" value="username" id="username-log"/><br/>
-            <label>Password</label> <input type="password" value="password" id="password-log"/><br/>
-            <input type="submit" value="Login" id="submit-log"/>
+            <label>Username</label> <input type="text" value="username" id="username-log" ng-model="login.username"/><br/>
+            <label>Password</label> <input type="password" value="password" id="password-log" ng-model="login.password"/><br/>
+            <input type="submit" value="Login" id="submit-log" ng-click="signin(login)"/>
         </form>
     </div>
 </div>

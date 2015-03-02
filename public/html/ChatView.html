@@ -7,6 +7,9 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script>
+        var isLoginValid = false;
+        var windowUser = "";
+//        var signedOnUser = "";
                 angular.module('chatApp',['ngRoute']).config(function($routeProvider){
                    $routeProvider.when('/',{
                        templateUrl: 'RegisterOrLogin.html',
@@ -17,29 +20,99 @@
                    }).otherwise({
                        redirectTo: '/'
                    });
-                }).factory('ChatService',function($window){
+                }).factory('ChatService',function($window,$http){
+                    var ws;
                     return{
-                        login: function(){
-                            $window.location.href = "#/chat";
+                        createWS: function(callback){
+                           ws = new WebSocket('ws://localhost:3001');
+                            ws.onopen = function () {
+                                console.log("socket opened");
+                                //need a method for closed browser
+                                $http.get('/chat/online').success(function (online) {
+                                    callback(online);
+                                });
+                                ws.send(JSON.stringify({user: windowUser,message: '',status:'signed on'}));
+                            };
                         },
-                        register: function(){
-
+                        messageWS: function(callback){
+                            ws.onmessage = function(m){
+                                callback(m);
+                            }  
                         },
-                        validate: function(){
+                        validate: function(password,log){
+                            if(password == log.password ){
+                                console.log('password match');
+                                return true;
+                            }else{
+                                return false;
+                            }
+                        },
+                        login: function(log,callback){
+//                            var _chatService = this;
+//                            var splitData;
+                            $http.get('/chat/login/'+log.username).success(function(data){
+                                console.log('login details ' +data);
+//                                splitData = data.split(',');
+                                 callback(data);
 
+                            });
+                        },
+                        register: function(user){
+                            $http.post('/chat/registration',user).success(function(data){
+                                console.log('registered ' +data);
+                            });
                         },
                         authenticate: function(){
 
                         }
+                    }
+                }).controller('loginController',function($scope,ChatService,$rootScope,$window){
+                    $scope.userData = {};
+                    $scope.register = function(user){
+//                        ChatService.login();
+                        $scope.userData = JSON.parse(JSON.stringify(user));
+                        console.log('user ' + $scope.userData.email);
+                        ChatService.register(user);
+                    }
+                    $scope.signin = function(log){
+                       ChatService.login(log,function (data){
+                           $scope.callbackData = data.split(',');
+                           windowUser = $scope.callbackData[1];
+                           console.log($scope.callbackData);
+                           isLoginValid = ChatService.validate($scope.callbackData[0],log);
+                           console.log('isloginvalid ' + isLoginValid);
+                           if(isLoginValid == true){
+                               $window.location.href = "#/chat";
+                           }else{
+                               console.log('login not valid');
+                           }
+                       });
 
                     }
-                }).controller('loginController',function($scope,ChatService){
-                    ChatService
-                    $scope.chatRoom = function(){
-                        ChatService.login();
+                }).controller('chatController',function($scope,ChatService){
+                    $scope.onlineUsers = [];
+                    $scope.signedOn = [];
+                    $scope.messageStatus = "";
+                    $scope.chatBox = 'hide';
+                    $scope.initChat = function(selectedUser){
+                        console.log('selected user ' +selectedUser);
+                        $scope.chatBox = selectedUser;
                     }
-                }).controller('chatController',function(){
-
+                            ChatService.createWS(function(online){
+                                for(var i = 0; i < online.length; i++){
+                                    console.log(online[i]);
+                                    if(windowUser != online[i]){
+                                        $scope.onlineUsers.push(online[i]);
+                                    }
+                                }
+                            });
+                            ChatService.messageWS((function(message){
+                                console.log('message ' + typeof message);
+                                $scope.$apply(function () {
+                                    $scope.signedOn.push(JSON.parse(message.data));
+                                });
+                                console.log('message returned ' + $scope.signedOn);
+                            }));
                 });
     </script>
 </head>

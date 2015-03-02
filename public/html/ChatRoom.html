@@ -1,4 +1,22 @@
 <div id="chat">
-<div id="chat-window"></div>
-<div id="online-window"></div>
+    <div id="chat-queue" ng-hide="checked"></div>
+<div id="chat-window">
+    <div class="chat-box" ng-repeat="userBox in onlineUsers" ng-show="chatBox==userBox" ng-hide="chatBox=='hide'">
+        <div class="current-user"><h4>{{userBox}}</h4></div>
+        <div class="messages"><h3></h3></div>
+        <textarea class="text" rows="3" column="80"></textarea>
+        <input class="send" type="button"/>
+    </div>
+    <div class="chat-box" ng-repeat="jsoBox in signedOn" ng-show="chatBox==jsoBox.user" ng-hide="chatBox=='hide'">
+        <div class="current-user"><h4>{{jsoBox.user}}</h4></div>
+        <div class="messages"><h3></h3></div>
+        <textarea class="text" rows="3" column="80"></textarea>
+        <input class="send" type="button"/>
+    </div>
+</div>
+<div id="online-window">
+    <a href="#/">Log Out</a>
+    <div ng-repeat="user in onlineUsers" ng-click="initChat(user)"><h2>{{user}}</h2></div>
+    <div ng-repeat="jso in signedOn" ng-click="initChat(jso.user)"><h2>{{jso.user}}</h2></div>
+</div>
 </div>

@@ -6,6 +6,9 @@ html,body{
     margin-top: 0px;
 
 }
+a{
+    float: right;
+}
 input {
     margin-left: 25px;
     margin-bottom: 1em;
@@ -19,19 +22,24 @@ input {
     justify-content: center;
 }
 #chat{
-    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+#chat-queue{
+    width: 15%;
     height: 100%;
-    display: none;
+    background-color: #5760ff;
 }
 #chat-window{
-    width: 80%;
+    width: 70%;
     height: 100%;
-    background: red;
+    background: #6b45ff;
 }
 #online-window{
     height: 100%;
-    width: 20%;
-    background: blue;
+    width: 15%;
+    background: #5760ff;
     margin: 0;
     padding: 0;
 }
@@ -66,12 +74,14 @@ input {
 #login:hover > h1 {
     color: #7e94ff;
 }
-h1{
+h1,h2{
     padding-top: 20px;
-    padding-left: 120px;
     color: white;
     font-weight: bolder;
     font-size: 250%;
+}
+h1{
+    padding-left: 120px;
 }
 #online-window > div{
     width: 100%;
@@ -89,26 +99,33 @@ h1{
 .chat-box{
     float: right;
     width: 300px;
-    height: 100%;
-    background-color: green;
-    display: none;
+    height: 75%;
+    background-color: #222222;
+    margin-left: 5px;
+    margin-top: 150px;
+    /*display: none;*/
 }
-#current-user{
+.current-user{
     width: 100%;
-    background-color: pink;
+    background-color: #2fff0a;
     height: 50px;
 }
-#messages{
+.messages{
     width: 100%;
-    height: 70%;
+    height: 60%;
     background-color: gray;
     overflow-y: auto;
 }
-#send{
+.send{
     display: block;
 }
 h3{
     white-space: pre-line;
+}
+h4{
+    color: white;
+    padding-left: 130px;
+    padding-top: 10px;
 }
 label{
     padding-left: 25px;
