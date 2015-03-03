@@ -10,3 +10,7 @@
 -NodeJS
  1. Add user to online users chat window and when signed on.
  2. Sending message back and forth still in progress.
+
+-PassportJS
+ 1. Use for autentication and session. If the user is signed in and the browser is closed, the user is still signed in.
+
